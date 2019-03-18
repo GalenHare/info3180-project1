@@ -1,8 +1,13 @@
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import InputRequired
+from flask_wtf import FlaskForm 
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+from wtforms import validators, StringField, TextAreaField
 
 
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired()])
-    password = PasswordField('Password', validators=[InputRequired()])
+class UploadForm(FlaskForm):
+    firstname = StringField('First Name',[validators.DataRequired()])
+    lastname = StringField('Last Name',[validators.DataRequired()])
+    gender = StringField('Gender',[validators.DataRequired()])
+    email = StringField('Email',[validators.DataRequired(),validators.Email()])
+    location = StringField('Location',[validators.DataRequired()])
+    bio = TextAreaField('Biography',[validators.DataRequired()])
+    image = FileField('Profile Picture',validators=[FileRequired(),FileAllowed(['jpg', 'png', 'Images only!'])])

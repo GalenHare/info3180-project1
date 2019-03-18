@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="page-header">File Upload</h1>
+
+{% include 'flash_messages.html' %}
+
+{# Add the appropriate method and enctype attributes to the form tag to allow for file uploads #}
+<form action="{{ url_for('profile') }}" method = "post" enctype="multipart/form-data">
+
+  {# Add the file upload field as you learnt for Flask-WTF #}
+  {{ form.csrf_token }}
+  <div>
+    {{ form.firstname.label }}
+   </div>
+   <div>
+    {{form.firstname}}
+  </div>
+  <div>
+    {{ form.lastname.label }}
+   </div>
+   <div>
+    {{form.lastname}}
+  </div>
+  <div>
+    {{ form.gender.label }}
+   </div>
+   <div>
+    {{form.gender}}
+  </div>
+  <div>
+    {{ form.email.label }}
+   </div>
+   <div>
+    {{form.email}}
+  </div>
+  <div>
+    {{ form.location.label }}
+   </div>
+   <div>
+    {{form.location}}
+  </div>
+  <div>
+    {{ form.bio.label }}
+   </div>
+   <div>
+    {{form.bio}}
+  </div>
+  <div>
+    {{ form.image.label }}
+   </div>
+   <div>
+    {{form.image}}
+  </div>
+  <div>
+  	<button type="submit" name="submit" class="btn btn-primary">Add Profile</button>
+  </div>
+</form>
+{% endblock %}

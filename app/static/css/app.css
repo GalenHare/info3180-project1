@@ -1,3 +1,40 @@
 body {
     padding-top: 5rem;
 }
+
+.profilecard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  max-height: 180px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  border-top: 5px solid blue;
+  display: grid;
+  grid-template-columns: 200px 200px 600px;
+  justify-items:center;
+  align-items: center;
+  
+}
+
+.profilecardpersonal{
+  max-width: 800px;
+  display: grid;
+  grid-gap:2px;
+  grid-template-columns: 400px 400px;
+}
+
+.bio{
+  grid-column: 1 / 2;
+}
+
+.profileimg{
+	  width:  100px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+#profilebutton{
+  width:300px;
+  height: 50px;
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div >
+	{% for user in users %}
+		<div class="profilecard">
+			<div>
+				<img class="profileimg" src="{{ url_for('static', filename="uploads/" + files[user.id]) }}" >
+			</div>
+			<div>
+				<p>{{user.first_name}} {{user.last_name}}</p>
+				<p>{{user.gender}}</p>
+				<p>{{user.location}}</p>
+			</div>
+			<a class="btn btn-primary" href="{{ url_for('userprofile',userid=user.id) }}">View Profile</a>
+		</div>
+	{% endfor %}
+	
+</div>
+
+{%endblock%}

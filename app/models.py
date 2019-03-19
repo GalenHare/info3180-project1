@@ -15,14 +15,16 @@ class UserProfile(db.Model):
     email = db.Column(db.String(80))
     location = db.Column(db.String(80))
     gender = db.Column(db.String(80))
+    date= db.Column(db.String(80))
     bio = db.Column(db.String(255))
     
-    def __init__(self, first_name, last_name, email, location, gender, bio):
+    def __init__(self, first_name, last_name, email, location, gender,date, bio):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
         self.location = location
         self.gender = gender
+        self.date=date;
         self.bio = bio
         
 

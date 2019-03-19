@@ -1,37 +1,165 @@
 body {
     padding-top: 5rem;
+    background-color: rgb(234, 242, 249);
 }
 
 .profilecard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 1000px;
+  max-width: 800px;
   max-height: 180px;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
-  border-top: 5px solid blue;
+  border-top: 5px solid rgb(84, 150, 227);
   display: grid;
-  grid-template-columns: 200px 200px 600px;
+  grid-template-columns: 100px 300px 500px;
   justify-items:center;
   align-items: center;
+  background-color: white;
   
 }
+.fas{
+  padding: 10px;  
+  color: rgb(155, 155, 155);
+  height: 20px;
+}
+
+#userprofilesbutton{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#userprofilebutton{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.name{
+  color: rgb(74, 74, 74);
+}
+.userinfo{
+  color: rgb(155, 155, 155);
+  font-size: 150%;
+  font-family: sans-serif;
+}
+
+
 
 .profilecardpersonal{
-  max-width: 800px;
+  width: 70%;
+  margin: auto;
   display: grid;
-  grid-gap:2px;
-  grid-template-columns: 400px 400px;
+  grid-column-gap: 10px;
+  border-top: 3px solid rgb(84, 150, 227);
+  padding: 30px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  grid-template-columns: 35% 65%;
+}
+
+.buttoncontainer{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column: 1 / -1;
+}
+
+#bio{
+  grid-column: 1 / -1;
+}
+
+
+.profileform{
+  margin: auto;
+  width: 50%;
+  border-top: 3px solid rgb(84, 150, 227);
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+input[type=text], textarea, select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0px -1px rgb(198, 198, 198);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+input[type=radio]{
+ padding: 12px 20px;
+  margin: 10px; 
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.myheadings{
+  margin-left: 280px;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 3px 25px;
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 1px 1px 35px 1px #888888;
+}
+
+.custom-file-upload:hover{
+  background-color: #dee5d7;
+}
+
+.mybutton{
+  border: 1px solid transparent;
+  color: #fff;
+  background-color: #7dd220;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.35rem;
+  padding: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.mybutton:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #4b9100;
+  border-color: #0062cc;
 }
 
 .bio{
   grid-column: 1 / 2;
+  max-width: 400px;
 }
 
-.profileimg{
+#profilesimg{
 	  width:  100px;
     height: 150px;
     border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#profileimg{
+  width:  200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 #profilebutton{

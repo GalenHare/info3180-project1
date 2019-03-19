@@ -6,6 +6,7 @@ This file creates your application.
 """
 
 import os
+import datetime 
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from app.forms import UploadForm
@@ -52,13 +53,38 @@ def profile():
     if request.method == 'POST':
         # Get file data and save to your uploads folder
         if form.validate_on_submit():
-            user = UserProfile(request.form['firstname'],request.form['lastname'],request.form['email'],request.form['location'],request.form['gender'],request.form['bio'])
+            now = datetime.datetime.now() # today's date
+            if(now.month==1):
+                month="Jan."
+            elif(now.month==2):
+                month="Feb."
+            elif(now.month==3):
+                month="Mar."
+            elif(now.month==4):
+                month="Apr."
+            elif(now.month==5):
+                month="May"
+            elif(now.month==6):
+                month="Jun."
+            elif(now.month==7):
+                month="Jul."
+            elif(now.month==8):
+                month="Aug."
+            elif(now.month==9):
+                month="Sep."
+            elif(now.month==10):
+                month="Oct."
+            elif(now.month==11):
+                month="Nov."
+            elif(now.month==12):
+                month="Dec."
+            date_joined= month+" "+str(now.day)+", "+str(now.year)
+            user = UserProfile(request.form['firstname'],request.form['lastname'],request.form['email'],request.form['location'],request.form['gender'],date_joined,request.form['bio'])
             db.session.add(user)
             db.session.commit()
             files = request.files['image']
-            filename = secure_filename(files.filename)
+            filename = secure_filename(files.filename+request.form['firstname'])
             files.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('New user was successfully added')
             return redirect(url_for('profiles'))
 
     return render_template('upload.html', form = form)

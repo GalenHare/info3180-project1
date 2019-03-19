@@ -1,19 +1,29 @@
 {% extends 'base.html' %}
 
 {% block main %}
-
+<h1>Profiles</h1>
 <div >
 	{% for user in users %}
 		<div class="profilecard">
-			<div>
-				<img class="profileimg" src="{{ url_for('static', filename="uploads/" + files[user.id]) }}" >
+			<div class="column1">
+				{% for file in files %}
+					{% if user.first_name in file %}
+						<img id="profilesimg" src="{{ url_for('static', filename="uploads/" + file) }}">
+					{% endif %}
+				{% endfor %}
 			</div>
-			<div>
-				<p>{{user.first_name}} {{user.last_name}}</p>
-				<p>{{user.gender}}</p>
-				<p>{{user.location}}</p>
+			<div class="column2">
+				<h3>{{user.first_name}} {{user.last_name}}</h3>
+				<div>
+					<span class="userinfo"><i class="fas fa-user"></i>  {{user.gender}}</span>
+				</div>
+				<div>
+					<span class="userinfo"><i class="fas fa-map-marker-alt"></i> {{user.location}}</span>
+				</div>
 			</div>
-			<a class="btn btn-primary" href="{{ url_for('userprofile',userid=user.id) }}">View Profile</a>
+			<div class="column3">
+				<a id = "userprofilesbutton" class="mybutton" href="{{ url_for('userprofile',userid=user.id) }}">View Profile</a>
+			</div>
 		</div>
 	{% endfor %}
 	

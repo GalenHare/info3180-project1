@@ -5,21 +5,28 @@
 <div >
 	<div class="profilecardpersonal">
 		<div>
-			<img class="profileimg" src="{{ url_for('static', filename="uploads/" + files[user.id]) }}" >
+			{% for file in files %}
+					{% if user.first_name in file %}
+						<img id="profilesimg" src="{{ url_for('static', filename="uploads/" + file) }}">
+					{% endif %}
+			{% endfor %}
 		</div>
 		<div>
-			<p>{{user.first_name}} {{user.last_name}}</p>
-			<p>{{user.email}}</p>
-			<p>{{user.location}}</p>
+			<h3>{{user.first_name}} {{user.last_name}}</h3>
+			<div><span class="userinfo"><i class="fas fa-envelope"></i>  {{user.email}}</span></div>
+			<div><span class="userinfo"><i class="fas fa-map-marker-alt"></i>  {{user.location}}</span></div>
+			<div><span class="userinfo"><i class="fas fa-birthday-cake"></i> Joined on {{user.date}}</span></div>
 		</div>
-		<div>
+		<div class="userinfo">
 			<p>About Me</p>
 		</div>
 		<div id="bio">
 			<p>{{user.bio}}</p>
 		</div>
-		<button id="profilebutton" name="submit" class="btn btn-primary">Send Message</button>
-		<button id="profilebutton" name="submit" class="btn btn-primary">Follow</button>
+		<div class="buttoncontainer">
+			<button id="userprofilebutton" class="mybutton">Send Message</button>
+			<button id="userprofilebutton" class="mybutton">Follow</button>
+		</div>
 	</div>
 </div>
 
